@@ -13,5 +13,6 @@ jobs:
             - run: |
                 sudo apt-get install docker -y
                 docker build . -t masterdevopstools/web
-                docker run -d masterdevopstools/web
+                docker run -d -p 8000:5000 masterdevopstools/web
                 docker ps
+                ip addr
