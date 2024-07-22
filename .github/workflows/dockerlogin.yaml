@@ -1,8 +1,8 @@
 name: test_docker_access
-on: workflow_dispatch
+on: push
 jobs:
     display:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: checkout
               uses: actions/checkout@v4
@@ -11,7 +11,7 @@ jobs:
                 username: ${{secrets.DOCKERHUB_USERNAME}}
                 password: ${{secrets.DOCKERHUB_TOKEN}}
             - run: |
-                sudo apt-get install docker -y
                 docker build . -t masterdevopstools/web
                 docker run -d masterdevopstools/web
                 docker ps
+                
