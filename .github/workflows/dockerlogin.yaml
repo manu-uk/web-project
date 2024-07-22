@@ -12,5 +12,5 @@ jobs:
                 password: ${{secrets.DOCKERHUB_TOKEN}}
             - run: |
                 docker build . -t masterdevopstools/web
-                docker run -d -p 8000:5000 masterdevopstools/web
+                docker run -d -p 8008:5000 masterdevopstools/web
                 docker ps
